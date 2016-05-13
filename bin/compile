@@ -13,9 +13,9 @@ INSTALL_DIR="$VENDOR_DIR/imagemagick"
 CACHE_FILE="$CACHE_DIR/imagemagick.tar.gz"
 
 
-if [ ! -f $CACHE_FILE ]; then
+#if [ ! -f $CACHE_FILE ]; then
   # install imagemagick
-  IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.3-10}"
+  IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.4-1}"
   IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.tar.gz"
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
   # SSL cert used on imagemagick not recognized by heroku.
@@ -48,11 +48,11 @@ if [ ! -f $CACHE_FILE ]; then
   tar czf $REL_INSTALL_DIR.tar.gz $REL_INSTALL_DIR
   mv $REL_INSTALL_DIR.tar.gz $CACHE_FILE
 
-else
-  # cache exists, extract it
-  echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
-  tar xzf $CACHE_FILE -C $VENDOR_DIR
-fi
+#else
+#  # cache exists, extract it
+#  echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
+#  tar xzf $CACHE_FILE -C $VENDOR_DIR
+#fi
 
 echo "-----> Writing policy file"
 mkdir -p $INSTALL_DIR/etc/ImageMagick
