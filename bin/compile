@@ -11,7 +11,7 @@ CACHE_DIR=$2
 VENDOR_DIR="$BUILD_DIR/vendor"
 INSTALL_DIR="$VENDOR_DIR/imagemagick"
 CACHE_FILE="$CACHE_DIR/imagemagick.tar.gz"
-USE_CACHE_FILE='yes'
+USE_CACHE_FILE='no'
 
 if [ $USE_CACHE_FILE = 'no' -o ! -f $CACHE_FILE ]; then
   # Install ImageMagick.
