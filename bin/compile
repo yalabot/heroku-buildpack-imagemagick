@@ -10,12 +10,15 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 VENDOR_DIR="$BUILD_DIR/vendor"
 INSTALL_DIR="$VENDOR_DIR/imagemagick"
-CACHE_FILE="$CACHE_DIR/imagemagick.tar.gz"
-USE_CACHE_FILE='yes'
+IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.5-5}"
+CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz"
 
-if [ $USE_CACHE_FILE = 'no' -o ! -f $CACHE_FILE ]; then
+
+if [ ! -f $CACHE_FILE ]; then
+  echo "-----> Cleaning up cached ImageMagick builds"
+  rm -f $CACHE_DIR/imagemagick*.tar.gz
+
   # Install ImageMagick.
-  IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.4-8}"
   IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.tar.gz"
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
 
