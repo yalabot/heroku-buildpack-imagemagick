@@ -15,6 +15,9 @@ CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz"
 
 
 if [ ! -f $CACHE_FILE ]; then
+  echo "-----> Cleaning up cached ImageMagick builds"
+  rm -f $CACHE_DIR/imagemagick*.tar.gz
+
   # Install ImageMagick.
   IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.tar.gz"
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
